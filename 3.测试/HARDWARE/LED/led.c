@@ -1,0 +1,30 @@
+#include "led.h"
+#include "delay.h"
+
+// PC13 ????(?????)
+void LED_On(void)
+{
+    GPIOC->ODR |= (1 << 13);      // PC13?????
+}
+
+void LED_Off(void)
+{
+    GPIOC->ODR &= ~(1 << 13);     // PC13?????
+}
+
+void LED_Toggle(void)
+{
+    GPIOC->ODR ^= (1 << 13);      // ??PC13
+}
+
+void LED_Init(void)
+{
+    RCC->APB2ENR |= 1 << 4;       // ??GPIOC??(bit4)
+    
+    // ??PC13?????
+    // PC13?CRH????(?8???),???(13-8)*4=20?
+    GPIOC->CRH &= ~(0xF << 20);   // ??PC13??(?20-23)
+    GPIOC->CRH |= (0x3 << 20);    // ????,50MHz
+    
+    LED_Off();                    // ????
+}
