@@ -55,8 +55,9 @@ void USART2_IRQHandler(void)
         u8 ch = USART_ReceiveData(USART2);
 
         // 蓝牙控制协议（你可以扩展）
-        if(ch == '1') Res = 1;   // 蓝牙发送 '1' → 开灯
-        if(ch == '2') Res = 2;   // 蓝牙发送 '0' → 关灯
+      // 统一映射：不管收到字符还是数字，都转化成全局功能码
+        if(ch == '1' || ch == 0x01) Res = 1; // 统一为功能 1 (开灯)
+        else if(ch == '2' || ch == 0x02) Res = 2; // 统一为功能 2 (关灯)
 		else if(ch == 'H') pwm_val = (pwm_val + 50 > pwm_max) ? pwm_max : pwm_val + 50;
         else if(ch == 'L') pwm_val = (pwm_val >= 50) ? pwm_val - 50 : 0;
     }

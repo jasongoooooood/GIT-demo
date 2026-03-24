@@ -30,7 +30,7 @@
 .\objects\usart3.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 .\objects\usart3.o: ..\STM32F10x_FWLib\inc\misc.h
 .\objects\usart3.o: ..\HARDWARE\OLED\oled.h
-.\objects\usart3.o: ..\SYSTEM\sys\sys.h
+.\objects\usart3.o: E:\正点原子\【正点原子】Nano STM32F103 V2开发板资料（新资料）\4，程序源码\1，标准例程-寄存器版本\实验22 DHT11数字温湿度传感器实验\SYSTEM\sys\sys.h
 .\objects\usart3.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\usart3.o: ..\SYSTEM\usart\usart.h
 .\objects\usart3.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

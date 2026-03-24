@@ -1,6 +1,6 @@
 .\objects\timer.o: ..\HARDWARE\TIM\timer.c
 .\objects\timer.o: ..\HARDWARE\TIM\timer.h
-.\objects\timer.o: ..\SYSTEM\sys\sys.h
+.\objects\timer.o: E:\正点原子\【正点原子】Nano STM32F103 V2开发板资料（新资料）\4，程序源码\1，标准例程-寄存器版本\实验22 DHT11数字温湿度传感器实验\SYSTEM\sys\sys.h
 .\objects\timer.o: ..\USER\stm32f10x.h
 .\objects\timer.o: ..\CORE\core_cm3.h
 .\objects\timer.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h

@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\HARDWARE\DHT11;..\HARDWARE\LED;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\OLED;..\HARDWARE\KEY;..\SYSTEM\usart3;..\HARDWARE\PWM;..\HARDWARE\BLE;..\HARDWARE\ADC;..\HARDWARE\TIM</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\HARDWARE\DHT11;..\HARDWARE\LED;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\usart;..\HARDWARE\OLED;..\HARDWARE\KEY;..\SYSTEM\usart3;..\HARDWARE\PWM;..\HARDWARE\BLE;..\HARDWARE\ADC;..\HARDWARE\TIM;..\HARDWARE\DHT11;E:\正点原子\【正点原子】Nano STM32F103 V2开发板资料（新资料）\4，程序源码\1，标准例程-寄存器版本\实验22 DHT11数字温湿度传感器实验\SYSTEM\sys</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -474,6 +474,16 @@
               <FileName>adc2.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HARDWARE\ADC\adc2.h</FilePath>
+            </File>
+            <File>
+              <FileName>dht11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\DHT11\dht11.c</FilePath>
+            </File>
+            <File>
+              <FileName>dht11.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HARDWARE\DHT11\dht11.h</FilePath>
             </File>
           </Files>
         </Group>

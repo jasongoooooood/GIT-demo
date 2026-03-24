@@ -1,6 +1,6 @@
 .\objects\oled.o: ..\HARDWARE\OLED\oled.c
 .\objects\oled.o: ..\HARDWARE\OLED\oled.h
-.\objects\oled.o: ..\SYSTEM\sys\sys.h
+.\objects\oled.o: E:\正点原子\【正点原子】Nano STM32F103 V2开发板资料（新资料）\4，程序源码\1，标准例程-寄存器版本\实验22 DHT11数字温湿度传感器实验\SYSTEM\sys\sys.h
 .\objects\oled.o: ..\USER\stm32f10x.h
 .\objects\oled.o: ..\CORE\core_cm3.h
 .\objects\oled.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h

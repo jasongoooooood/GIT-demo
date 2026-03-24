@@ -29,7 +29,7 @@
 .\objects\main.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 .\objects\main.o: ..\STM32F10x_FWLib\inc\misc.h
 .\objects\main.o: ..\HARDWARE\OLED\oled.h
-.\objects\main.o: ..\SYSTEM\sys\sys.h
+.\objects\main.o: E:\正点原子\【正点原子】Nano STM32F103 V2开发板资料（新资料）\4，程序源码\1，标准例程-寄存器版本\实验22 DHT11数字温湿度传感器实验\SYSTEM\sys\sys.h
 .\objects\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\HARDWARE\LED\led.h
 .\objects\main.o: ..\SYSTEM\usart3\usart3.h
@@ -39,5 +39,6 @@
 .\objects\main.o: ..\HARDWARE\KEY\key.h
 .\objects\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: ..\HARDWARE\PWM\pwm.h
-.\objects\main.o: ..\HARDWARE\ADC\adc2.h
+.\objects\main.o: ..\HARDWARE\BLE\bluetooth.h
 .\objects\main.o: ..\HARDWARE\TIM\timer.h
+.\objects\main.o: ..\HARDWARE\DHT11\dht11.h
