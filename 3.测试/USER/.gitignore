@@ -1,0 +1,22 @@
+# Keil 中间文件
+*.o
+*.crf
+*.d
+*.dep
+*.lnp
+*.map
+*.lst
+*.htm
+*.build_log.htm
+*.axf
+*.uvguix.*
+*.uvoptx
+*.bak
+*.Administrator
+Objects/
+Listings/
+
+# 编译产生的临时文件夹
+bin/
+obj/
+EOF

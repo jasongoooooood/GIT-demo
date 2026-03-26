@@ -5,6 +5,9 @@ extern u8 Res;   // 与语音模块共用控制变量
 extern uint16_t pwm_val;
 extern uint16_t pwm_max;
 
+extern u8 temp;
+extern u8 humi;
+
 void USART2_Config(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
@@ -60,5 +63,16 @@ void USART2_IRQHandler(void)
         else if(ch == '2' || ch == 0x02) Res = 2; // 统一为功能 2 (关灯)
 		else if(ch == 'H') pwm_val = (pwm_val + 50 > pwm_max) ? pwm_max : pwm_val + 50;
         else if(ch == 'L') pwm_val = (pwm_val >= 50) ? pwm_val - 50 : 0;
+
+
+        else if(ch == 'A')   // 查询全部 ALL
+        {
+            char buf[32];
+            int len = sprintf(buf, "T: %d C;H: %d percent;L :%d range\r\n", temp, humi, pwm_val);
+            for(int i=0;i<len;i++){
+                USART_SendData(USART2, buf[i]);
+                while(USART_GetFlagStatus(USART2, USART_FLAG_TXE)==RESET);
+            }
+        }
     }
 }

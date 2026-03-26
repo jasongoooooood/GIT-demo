@@ -65,60 +65,59 @@ int main(void)
 
 	// --- 关键修改点 1: 将 last_pwm 设为一个不可能的值 ---
     // 这样开机后第一次进入 while(1) 就会强制刷新一次屏幕显示“灭”
-    //uint32_t light_refresh_count = 0;
-		while(1)
-		{
-				// 1. 优先处理语音指令
-				switch(Res)
-				{
-						case 1:     // 语音：开灯
-								pwm_val = 500;
-								Res = 0;
-								break;
+	while(1)
+	{
+			// 1. 优先处理语音指令
+			switch(Res)
+			{
+					case 1:     // 语音：开灯
+							pwm_val = 500;
+							Res = 0;
+							break;
 
-						case 2:     // 语音：关灯
-								pwm_val = 0;
-								Res = 0;
-								break;
+					case 2:     // 语音：关灯
+							pwm_val = 0;
+							Res = 0;
+							break;
 
-						default:
-								break;
-				}
-
-	
-				// 2. 处理按键 (PC8, PC9)
-				uint8_t key = KEY_Scan();
-
-				if(key == 1)
-					pwm_val = (pwm_val + 50 > pwm_max) ? pwm_max : pwm_val + 50;
-
-				if(key == 2)
-					pwm_val = (pwm_val >= 50) ? pwm_val - 50 : 0;
-
-				// 3. 更新 PWM
-				TIM_SetCompare1(TIM2, pwm_val);
+					default:
+							break;
+			}
 
 
-				// 4. 【核心优化】所有显示逻辑汇总到这里
-				// 只有在亮度变化时，才“忍痛”花几十毫秒刷一次屏
-				if(pwm_val != last_pwm)
-				{
-						OLED_ShowNum(64, 16, pwm_val, 3, 16, 1);
+			// 2. 处理按键 (PC8, PC9)
+			uint8_t key = KEY_Scan();
 
-						if(pwm_val == 0) OLED_ShowChinese(80, 0, 5, 16, 1); // 灭
-						else             OLED_ShowChinese(80, 0, 4, 16, 1); // 亮
-						
-						// 注意：如果你用的是带显存的库，这里可能需要手动调一次 OLED_Refresh();
-						// 如果 ShowChinese 内部自带了 Refresh，就不用再写了
-						last_pwm = pwm_val; 
-				}
-				
-				//5.温湿度显示
-				OLED_ShowNum(16, 32, temp, 2, 16, 1);
-				OLED_ShowNum(64, 32, humi, 2, 16, 1);
-				delay_ms(10);
-				DHT11_Read_Data(&temp,&humi);//
-				printf("temp %d ,humi %d\r\n",temp,humi);
+			if(key == 1)
+				pwm_val = (pwm_val + 50 > pwm_max) ? pwm_max : pwm_val + 50;
 
-		}
+			if(key == 2)
+				pwm_val = (pwm_val >= 50) ? pwm_val - 50 : 0;
+
+			// 3. 更新 PWM
+			TIM_SetCompare1(TIM2, pwm_val);
+
+
+			// 4. 【核心优化】所有显示逻辑汇总到这里
+			// 只有在亮度变化时，才“忍痛”花几十毫秒刷一次屏
+			if(pwm_val != last_pwm)
+			{
+					OLED_ShowNum(64, 16, pwm_val, 3, 16, 1);
+
+					if(pwm_val == 0) OLED_ShowChinese(80, 0, 5, 16, 1); // 灭
+					else             OLED_ShowChinese(80, 0, 4, 16, 1); // 亮
+					
+					// 注意：如果你用的是带显存的库，这里可能需要手动调一次 OLED_Refresh();
+					// 如果 ShowChinese 内部自带了 Refresh，就不用再写了
+					last_pwm = pwm_val; 
+			}
+			
+			//5.温湿度显示
+			OLED_ShowNum(16, 32, temp, 2, 16, 1);
+			OLED_ShowNum(64, 32, humi, 2, 16, 1);
+			delay_ms(10);
+			DHT11_Read_Data(&temp,&humi);//
+			printf("temp %d ,humi %d\r\n",temp,humi);
+
+	}
 }
